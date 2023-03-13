@@ -12,7 +12,7 @@ const fromApiResponseToPictograms = apiResponse => {
 
 export default async function getPictogram (keyword) {
   // console.log('get', keyword)
-  const apiUrl = `${API_URL}en/bestsearch/${keyword}`
+  const apiUrl = `${API_URL}es/search/${keyword}`
   const response = await fetch(apiUrl)
   const datas = await response.json()
   console.log('PETICION CORRECTA')

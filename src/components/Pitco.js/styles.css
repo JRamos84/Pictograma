@@ -1,0 +1,19 @@
+.btn-picto {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    display: block;
+    width: 30px;
+    border: none;
+    background-color: #3f5efb;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+  }
+
+.btn-picto:hover {
+    background-color: #ddd;
+    color: black;
+  }

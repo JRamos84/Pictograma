@@ -4,9 +4,9 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Navbar from 'react-bootstrap/Navbar'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import './styles.css'
 import ListPictograms from 'components/ListPictograms'
+import SelectPicto from 'components/SelectPicto'
 
 export default function Search () {
   const { keyword, setKeyword } = useContext(SelectContext)
@@ -39,9 +39,11 @@ export default function Search () {
 
         </Container>
       </Navbar>
-      {keyword.length === 0
-        ? <></>
-        : <Container><Row><Col sm={8}>  <ListPictograms keyword={keyword} /></Col></Row></Container>}
+      <div className='pictocontent'>
+        {keyword.length === 0
+          ? <></>
+          : <><ListPictograms keyword={keyword} /><SelectPicto /></>}
+      </div>
 
     </>
   )
