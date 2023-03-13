@@ -1,5 +1,5 @@
 import React from 'react'
 
-export default function Shedule () {
+export default function Diary () {
   return <h1>Agenda</h1>
 }

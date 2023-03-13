@@ -1,3 +1,4 @@
+const API_URL = 'https://api.arasaac.org/api/pictograms/'
 
 const fromApiResponseToPictograms = apiResponse => {
   const datas = apiResponse
@@ -9,11 +10,11 @@ const fromApiResponseToPictograms = apiResponse => {
   return idPictograms
 }
 
-export default function getPictogram ({ keyword }) {
-  if (keyword === '') keyword = 'dog'
-  const apiUrl = `https://api.arasaac.org/api/pictograms/en/bestsearch/${keyword}`
-  //  console.log(apiUrl)
-  return fetch(apiUrl)
-    .then((res) => res.json())
-    .then(fromApiResponseToPictograms)
+export default async function getPictogram (keyword) {
+  // console.log('get', keyword)
+  const apiUrl = `${API_URL}en/bestsearch/${keyword}`
+  const response = await fetch(apiUrl)
+  const datas = await response.json()
+  console.log('PETICION CORRECTA')
+  return fromApiResponseToPictograms(datas)
 }

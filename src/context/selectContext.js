@@ -3,10 +3,11 @@ import React, { useState } from 'react'
 const Context = React.createContext()
 
 export function SelectContextProvider ({ children }) {
-  const [selectPictogram, setSelectPictogram] = useState([{ id: 0, status: false }])
+  const [pictos, setPictos] = useState([])
+  const [keyword, setKeyword] = useState('')
 
   return (
-    <Context.Provider value={{ selectPictogram, setSelectPictogram }}>
+    <Context.Provider value={{ pictos, setPictos, keyword, setKeyword }}>
       {children}
     </Context.Provider>
   )

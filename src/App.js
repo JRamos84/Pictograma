@@ -1,37 +1,32 @@
 
 import './App.css'
-import { Route, Link } from 'wouter'
+import NavBarMenu from 'layouts/NavbarMenu'
 import Home from 'Page/Home'
-import searchResults from 'Page/SeachResults'
-import Shedule from 'Page/Shedule'
+import About from './Page/About'
+import Diary from 'Page/Diary'
 import { SelectContextProvider } from 'context/selectContext'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Search from 'Page/Search'
 
 function App () {
   return (
 
     <div className='App'>
-      <Link to='/'>
-        <h1>Inicio</h1>
-      </Link>
-      <Link to='/search/'>
-        <h1>Buscar pictogramas</h1>
-      </Link>
-      <Link to='/shedule'>
-        <h1>Agenda</h1>
-      </Link>
-      <SelectContextProvider>
-        <Route component={Home} path='/' />
+      <BrowserRouter>
+        <SelectContextProvider>
+          <Routes>
+            <Route path='/' element={<NavBarMenu />}>
+              <Route index element={<Home />} />
+              <Route path='search' element={<Search />} />
+              <Route path='diary' element={<Diary />} />
+              <Route path='about' element={<About />} />
+              <Route path='contact' element={<contact />} />
+            </Route>
+          </Routes>
 
-        <Route
-          component={searchResults}
-          path='/search/'
-        />
+        </SelectContextProvider>
 
-        <Route
-          component={Shedule}
-          path='/shedule/'
-        />
-      </SelectContextProvider>
+      </BrowserRouter>
 
     </div>
   )
