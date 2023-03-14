@@ -9,8 +9,9 @@ import ListPictograms from 'components/ListPictograms'
 import SelectPicto from 'components/SelectPicto'
 
 export default function Search () {
-  const { keyword, setKeyword } = useContext(SelectContext)
+  const { keyword, setKeyword, selectPictogram } = useContext(SelectContext)
   const [search, SetSearch] = useState('')
+  const [name, setName] = useState('')
   const handleSubmit = (eve) => {
     eve.preventDefault()
     setKeyword(search)
@@ -18,6 +19,16 @@ export default function Search () {
 
   const handleChange = (eve) => {
     SetSearch(eve.target.value)
+  }
+  const handleChangeDiary = (eve) => {
+    setName(eve.target.value)
+  }
+  const handleSubmitDiary = (eve) => {
+    eve.preventDefault()
+    if (selectPictogram.length !== 0) {
+      localStorage.setItem(name, JSON.stringify(selectPictogram))
+      console.log(localStorage.getItem(name))
+    } else { alert('Agenda Vacia') }
   }
   return (
     <>
@@ -30,11 +41,23 @@ export default function Search () {
               type='search'
               placeholder='Search'
               className='me-2'
-              aria-label='Search'
+              aria-label='Buscar'
               onChange={handleChange}
               value={search}
             />
             <Button variant='outline-success' onClick={handleSubmit}>Search</Button>
+          </Form>
+
+          <Form className='d-flex ' onSubmit={handleSubmitDiary}>
+            <Form.Control
+              type='search'
+              placeholder='Nombre'
+              className='me-2'
+              aria-label='Search'
+              onChange={handleChangeDiary}
+              value={name}
+            />
+            <Button variant='outline-success' onClick={handleSubmitDiary}>Agregar</Button>
           </Form>
 
         </Container>
