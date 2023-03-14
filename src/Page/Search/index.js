@@ -26,8 +26,11 @@ export default function Search () {
   const handleSubmitDiary = (eve) => {
     eve.preventDefault()
     if (selectPictogram.length !== 0) {
-      localStorage.setItem(name, JSON.stringify(selectPictogram))
-      console.log(localStorage.getItem(name))
+      let exiting = JSON.parse(localStorage.getItem('diaries'))
+      exiting = exiting || []
+      exiting.push({ diary: name, image: selectPictogram })
+      localStorage.setItem('diaries', JSON.stringify(exiting))
+      console.log(localStorage.getItem('diaries'))
     } else { alert('Agenda Vacia') }
   }
   return (
