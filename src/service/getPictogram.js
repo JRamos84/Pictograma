@@ -6,12 +6,10 @@ const fromApiResponseToPictograms = apiResponse => {
     const id = data._id
     return id
   })
-  // console.log(idPictograms)
   return idPictograms
 }
 
 export default async function getPictogram (keyword) {
-  // console.log('get', keyword)
   const apiUrl = `${API_URL}es/search/${keyword}`
   const response = await fetch(apiUrl)
   const datas = await response.json()

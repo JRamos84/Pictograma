@@ -9,7 +9,7 @@ import ListPictograms from 'components/ListPictograms'
 import SelectPicto from 'components/SelectPicto'
 
 export default function Search () {
-  const { keyword, setKeyword, selectPictogram } = useContext(SelectContext)
+  const { keyword, setKeyword, selectPictogram, setSelectPictogram } = useContext(SelectContext)
   const [search, SetSearch] = useState('')
   const [name, setName] = useState('')
   const handleSubmit = (eve) => {
@@ -30,7 +30,10 @@ export default function Search () {
       exiting = exiting || []
       exiting.push({ diary: name, image: selectPictogram })
       localStorage.setItem('diaries', JSON.stringify(exiting))
-      console.log(localStorage.getItem('diaries'))
+      setSelectPictogram([])
+      alert('Agenda agregado con exito')
+      SetSearch('')
+      setName('')
     } else { alert('Agenda Vacia') }
   }
   return (
