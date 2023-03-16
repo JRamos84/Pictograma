@@ -1,25 +1,26 @@
 
-import React, { useEffect, useState } from 'react'
-// import Button from 'react-bootstrap/Button'
-import Modal from 'react-bootstrap/Modal'
+import PictoModal from 'components/PictoModal'
+import SelectContext from 'context/selectContext'
+import React, { useContext, useEffect, useState } from 'react'
 import './styles.css'
-
+import Button from 'react-bootstrap/Button'
+import { AiOutlinePlayCircle } from 'react-icons/ai'
+import { FcSettings } from 'react-icons/fc'
+import PictoModalConfig from 'components/PictoModalConfig'
 export default function Diary () {
-  const [diaries, setDiaries] = useState([])
   const [loanding, setLoanding] = useState(true)
-  const [fullscreen, setFullscreen] = useState(true)
-  const [show, setShow] = useState(false)
+  const { diaries, setDiaries, setFullscreen, setShow, setFullscreenConfig, setShowConfig } = useContext(SelectContext)
+
   function handleShow (breakpoint) {
     setFullscreen(breakpoint)
     setShow(true)
   }
-  const handleCheck = (status, img, diary) => {
-    const newdiaries = [...diaries]
-    const atDiary = newdiaries.find(a => a.diary === diary)
-    const atImg = atDiary.image.find(b => b.img === img)
-    atImg.status = !status
-    setDiaries(newdiaries)
+
+  function handleShowConfig (breakpoint) {
+    setFullscreenConfig(breakpoint)
+    setShowConfig(true)
   }
+
   useEffect(function () {
     const newDiaries = (JSON.parse(localStorage.getItem('diaries'))) || []
     setDiaries(newDiaries)
@@ -35,34 +36,14 @@ export default function Diary () {
         diaries.map((diary, idx) => (
           <div key={idx}>
             <div>
-              <img src={`https://api.arasaac.org/api/pictograms/${diary.image[0].img}`} className='me-2 mb-2' onClick={() => handleShow(true)} alt='tile' />
+              <img src={`https://api.arasaac.org/api/pictograms/${diary.image[0].img}`} className='me-2 mb-2' alt='tile' />
               <h1>{diary.diary}</h1>
+              <Button variant='success' onClick={() => handleShow(true)}><AiOutlinePlayCircle /></Button>{' '}
+              <Button variant='light' onClick={() => handleShowConfig(true)}><FcSettings /></Button>{' '}
             </div>
 
-            <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
-              <Modal.Header closeButton>
-                <Modal.Title>{diary.diary}</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <div className='select-picto'>
-
-                  {diary.image.map(({ img, status }, idx) => (
-                    <div key={idx}>
-                      <img src={`https://api.arasaac.org/api/pictograms/${img}`} alt='picto-select' />
-                      <label>
-                        <input type='checkbox' onChange={() => handleCheck(status, img, diary.diary)} />
-                        <span
-                          className={`checkbox ${status ? 'checkbox--active' : ''}`}
-                          aria-hidden='true'
-                        />
-
-                      </label>
-                    </div>
-                  ))}
-
-                </div>
-              </Modal.Body>
-            </Modal>
+            <PictoModal diary={diary} />
+            <PictoModalConfig diary={diary} />
           </div>
 
         ))

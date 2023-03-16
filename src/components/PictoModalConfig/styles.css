@@ -1,0 +1,9 @@
+.select-picto{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.picto-sort{
+
+    display: flex;
+}
