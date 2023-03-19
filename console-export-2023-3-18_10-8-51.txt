@@ -1,0 +1,1 @@
+localStorage.setItem('diaries','[{"diary":"D1","image":[{"img":2517,"status":false,"statusConfig":false},{"img":7202,"status":false,"statusConfig":false},{"img":7057,"status":false,"statusConfig":false},{"img":38506,"status":false,"statusConfig":false}]}]')

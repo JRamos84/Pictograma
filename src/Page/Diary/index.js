@@ -9,7 +9,7 @@ import { FcSettings } from 'react-icons/fc'
 import PictoModalConfig from 'components/PictoModalConfig'
 export default function Diary () {
   const [loanding, setLoanding] = useState(true)
-  const { diaries, setDiaries, setFullscreen, setShow, setFullscreenConfig, setShowConfig } = useContext(SelectContext)
+  const { diaries, setDiaries, setDiariesConfig, setFullscreen, setShow, setFullscreenConfig, setShowConfig } = useContext(SelectContext)
 
   function handleShow (breakpoint) {
     setFullscreen(breakpoint)
@@ -23,8 +23,12 @@ export default function Diary () {
 
   useEffect(function () {
     const newDiaries = (JSON.parse(localStorage.getItem('diaries'))) || []
-    setDiaries(newDiaries)
-    // console.log(newDiaries)
+    const newdiary = newDiaries.map(atwork => {
+      return { ...atwork, image: [...atwork.image.map((a, idx) => ({ ...a, sort: idx }))] }
+    })
+    setDiaries(newdiary)
+    setDiariesConfig(newDiaries)
+
     if (newDiaries.length !== 0) setLoanding(false)
   }, [])
 
@@ -36,6 +40,7 @@ export default function Diary () {
         diaries.map((diary, idx) => (
           <div key={idx}>
             <div>
+
               <img src={`https://api.arasaac.org/api/pictograms/${diary.image[0].img}`} className='me-2 mb-2' alt='tile' />
               <h1>{diary.diary}</h1>
               <Button variant='success' onClick={() => handleShow(true)}><AiOutlinePlayCircle /></Button>{' '}

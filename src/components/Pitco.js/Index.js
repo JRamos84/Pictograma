@@ -7,10 +7,8 @@ import './styles.css'
 export default function Picto () {
   const { selectPictogram, setSelectPictogram, pictos } = useContext(SelectContext)
   const handlePictogram = (img) => {
-    // console.log(selectPictogram)
     const founder = selectPictogram.findIndex(e => e.id === img)
-    if (selectPictogram.length === 0 || founder === -1)setSelectPictogram(selectPictogram.concat({ img, status: false }))
-    // console.log('aqui', founder)
+    if (selectPictogram.length === 0 || founder === -1)setSelectPictogram(selectPictogram.concat({ img, status: false, statusConfig: false }))
   }
 
   return (

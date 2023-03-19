@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import Modal from 'react-bootstrap/Modal'
 export default function PictoModal ({ diary }) {
   const { diaries, setDiaries, fullscreen, show, setShow } = useContext(SelectContext)
+
   const handleCheck = (status, img, diary) => {
     const newdiaries = [...diaries]
     const atDiary = newdiaries.find(a => a.diary === diary)
