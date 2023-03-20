@@ -16,12 +16,7 @@ function NavBarMenu () {
               <Nav.Link as={Link} to='/'>
                 Inicio
               </Nav.Link>
-              <Nav.Link as={Link} to='/search'>
-                Buscador
-              </Nav.Link>
-              <Nav.Link as={Link} to='/diary'>
-                Agenda
-              </Nav.Link>
+
               <Nav.Link as={Link} to='/about'>
                 Acerca de...
               </Nav.Link>

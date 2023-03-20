@@ -1,4 +1,30 @@
 
+import SelectContext from 'context/selectContext'
+import React, { useContext, useEffect, useState } from 'react'
+import './styles.css'
+import Row from 'react-bootstrap/Row'
+
+import DiaryPicto from 'components/DiaryPicto'
+
 export default function Home () {
-  return <h1>Home</h1>
+  const [loanding, setLoanding] = useState(true)
+  const { setDiaries, setDiariesConfig } = useContext(SelectContext)
+
+  useEffect(function () {
+    const newDiaries = (JSON.parse(localStorage.getItem('diaries'))) || []
+    const newdiary = newDiaries.map(atwork => {
+      return { ...atwork, image: [...atwork.image.map((a, idx) => ({ ...a, sort: idx }))] }
+    })
+    setDiaries(newdiary)
+    setDiariesConfig(newDiaries)
+
+    if (newDiaries.length !== 0) setLoanding(false)
+  }, [])
+
+  return (
+    <>{loanding
+      ? <h1>no hay agenda</h1>
+      : <Row xs={2} md={4} className='g-2  justify-content-between'><DiaryPicto /></Row>}
+    </>
+  )
 }
