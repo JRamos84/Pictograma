@@ -7,10 +7,10 @@
     @apply relative  bg-white shadow-xl hover:shadow-none cursor-pointer w-32 h-32 m-2 rounded-3xl flex flex-col items-center justify-center;
   }
   .wrapperCheckList{
-    @apply relative  bg-blue-600 shadow-xl hover:shadow-none cursor-pointer w-32 h-32 m-2 rounded-3xl flex flex-col items-center justify-center;
+    @apply   bg-blue-500 shadow-xl hover:shadow-none cursor-pointer w-32 h-32 m-2 rounded-3xl flex flex-col items-center justify-center;
   }
   .wrapperAnimeList {
-    @apply transition-all duration-200 ease-in-out;
+    @apply transition-all duration-500 ease-in-out;
   }
   .wrapperAnime {
     @apply transition-all duration-500 ease-in-out;
@@ -18,15 +18,24 @@
   
   
   .header {
-    @apply  mt-2 mx-2;
+    @apply  m-0;
   }
   
   .imageWrapper {
-    @apply h-24 rounded-2xl overflow-hidden;
+    @apply flex justify-center items-center   h-32 rounded-2xl overflow-hidden ;
   }
   
   .image {
-    @apply object-cover w-full h-full ;
+    @apply object-cover w-20 h-20 ;
+  }
+  
+  .imageWrapperCheck {
+    @apply flex justify-center items-center  h-full w-full   ;
+  }
+  
+
+  .imagecheck {
+    @apply  w-16 h-16 ;
   }
   
   .textWrapper {

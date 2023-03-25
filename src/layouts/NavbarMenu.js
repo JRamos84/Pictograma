@@ -3,11 +3,12 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 
 import { Outlet, Link } from 'react-router-dom'
+import FooterMenu from './FooterMenu'
 
 function NavBarMenu () {
   return (
     <>
-      <Navbar className='navBg' variant='light' expand='lg'>
+      <Navbar className='relative navBg' variant='light' expand='lg'>
         <Container>
           <Navbar.Brand as={Link}>App-Pictogramas</Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -27,9 +28,10 @@ function NavBarMenu () {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <section>
+      <section className='section-app'>
         <Outlet />
       </section>
+      <FooterMenu />
     </>
   )
 }

@@ -1,6 +1,6 @@
 
 .section {
-    @apply bg-gray-100 h-full w-full md:h-screen w-full;
+    @apply bg-blue-900 h-full w-full md:h-screen w-full;
   }
   
   .contain{

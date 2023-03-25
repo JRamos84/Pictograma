@@ -25,10 +25,17 @@ const CardSelectModal = ({ status, order, image, diary }) => {
         </div>
 
       </div>
+
       <div
         className={classNames(styles.wrapperAnimeList, styles.wrapperCheck, `checkbox ${status ? styles.wrapperCheckList : ''}`)}
         onClick={() => handleCheck(status, image, diary)}
-      />
+      >
+
+        <div className={styles.imageWrapperCheck}>
+          {status ? <img src={require('./images4.png')} className={styles.imagecheck} alt='' /> : ''}
+        </div>
+
+      </div>
 
     </div>
 
