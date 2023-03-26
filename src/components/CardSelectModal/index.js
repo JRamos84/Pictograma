@@ -4,14 +4,14 @@ import SelectContext from 'context/selectContext'
 import { useContext } from 'react'
 const SRC = 'https://api.arasaac.org/api/pictograms/'
 
-const CardSelectModal = ({ status, order, image, diary }) => {
-  const { diaries, setDiaries } = useContext(SelectContext)
+const CardSelectModal = ({ status, order, image, diary, counter }) => {
+  const { diariesConfig, setDiariesConfig } = useContext(SelectContext)
   const handleCheck = (status, img, diary) => {
-    const newdiaries = [...diaries]
+    const newdiaries = [...diariesConfig]
     const atDiary = newdiaries.find(a => a.diary === diary)
-    const atImg = atDiary.image.find(b => b.img === img)
+    const atImg = atDiary.image.find(b => b.counter === counter)
     atImg.status = !status
-    setDiaries(newdiaries)
+    setDiariesConfig(newdiaries)
   }
 
   return (
@@ -28,7 +28,7 @@ const CardSelectModal = ({ status, order, image, diary }) => {
 
       <div
         className={classNames(styles.wrapperAnimeList, styles.wrapperCheck, `checkbox ${status ? styles.wrapperCheckList : ''}`)}
-        onClick={() => handleCheck(status, image, diary)}
+        onClick={() => handleCheck(status, image, diary, counter)}
       >
 
         <div className={styles.imageWrapperCheck}>

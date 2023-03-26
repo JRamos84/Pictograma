@@ -6,7 +6,7 @@ export function usePicto ({ keyword } = { keyword: null }) {
   const [loandig, setLoanding] = useState(false)
   const { pictos, setPictos } = useContext(SelectContext)
   const keywordToUse = keyword
-  // console.log(keywordToUse)
+
   useEffect(
     function () {
       setLoanding(true)

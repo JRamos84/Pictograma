@@ -20,14 +20,17 @@ export default function DiaryPicto () {
                   order={index + 1}
                   image={diary.image[0].img}
                 />
-                <PictoModal diary={diary} />
-                <PictoModalConfig diary={diary} />
+
               </div>
 
             ))}
           </div>
         </section>
+
       </main>
+
+      <PictoModalConfig />
+      <PictoModal />
 
     </>
   )

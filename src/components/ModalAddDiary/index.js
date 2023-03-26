@@ -4,14 +4,13 @@ import SelectPicto from 'components/SelectPicto'
 import ConfirmModal from 'components/ConfirmModal'
 const ModalAddDiary = () => {
   const [showModal, setShowModal] = useState(false)
-  const { selectPictogram, setSelectPictogram, SetSearch, setShowConfimModal } = useContext(SelectContext)
+  const { selectPictogram, setSelectPictogram, SetSearch, setShowConfimModal, setKeyword } = useContext(SelectContext)
   const [name, setName] = useState('')
   const handleChangeDiary = (eve) => {
     setName(eve.target.value)
   }
   const handleSubmitDiary = (eve) => {
     eve.preventDefault()
-    console.log('aqui')
     if (selectPictogram.length !== 0) {
       let exiting = JSON.parse(localStorage.getItem('diaries'))
       exiting = exiting || []
@@ -20,6 +19,7 @@ const ModalAddDiary = () => {
       setSelectPictogram([])
       SetSearch('')
       setName('')
+      setKeyword('')
       setShowModal(false)
       setShowConfimModal(true)
     } else { alert('Agenda Vacia') }

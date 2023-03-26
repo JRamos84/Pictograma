@@ -9,7 +9,6 @@ export default function SelectPicto () {
   const removePicto = (img) => {
     const newPicto = selectPictogram.filter((select) => select.img !== img)
     setSelectPictogram(newPicto)
-    console.log(selectPictogram.length)
   }
   return (
     <div className='carousel__container'>

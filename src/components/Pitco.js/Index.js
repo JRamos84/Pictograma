@@ -1,10 +1,11 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import SelectContext from 'context/selectContext'
 import './styles.css'
 import { GrCheckbox, GrCheckboxSelected } from 'react-icons/gr'
 
 export default function Picto () {
   const { selectPictogram, setSelectPictogram, pictos } = useContext(SelectContext)
+  const [counter, setCounter] = useState(0)
 
   const removePicto = (img) => {
     const newPicto = selectPictogram.filter((select) => select.img !== img)
@@ -13,8 +14,11 @@ export default function Picto () {
   }
   const handlePictogram = (img) => {
     const founder = selectPictogram.findIndex(e => e.img === img)
-    if (selectPictogram.length === 0 || founder === -1)setSelectPictogram(selectPictogram.concat({ img, status: false, statusConfig: false }))
-    console.log(selectPictogram)
+    if (selectPictogram.length === 0 || founder === -1) {
+      setSelectPictogram(selectPictogram.concat({ img, statusConfig: false, counter, status: false }))
+      setCounter(counter => counter + 1)
+    }
+
     if (founder !== -1) removePicto(img)
   }
   const checkBoxSelect = (img) => {

@@ -10,10 +10,7 @@ export default function Home () {
 
   useEffect(function () {
     const newDiaries = (JSON.parse(localStorage.getItem('diaries'))) || []
-    const newdiary = newDiaries.map(atwork => {
-      return { ...atwork, image: [...atwork.image.map((a, idx) => ({ ...a, sort: idx }))] }
-    })
-    setDiaries(newdiary)
+    setDiaries(newDiaries)
     setDiariesConfig(newDiaries)
 
     if (newDiaries.length !== 0) setLoanding(false)

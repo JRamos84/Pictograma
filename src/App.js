@@ -1,4 +1,3 @@
-
 import './App.css'
 import NavBarMenu from 'layouts/NavbarMenu'
 import Home from 'Page/Home'
@@ -11,7 +10,6 @@ import Profile from 'Page/Profile'
 
 function App () {
   return (
-
     <div className='App'>
       <BrowserRouter>
         <SelectContextProvider>
@@ -24,11 +22,8 @@ function App () {
               <Route path='profile' element={<Profile />} />
             </Route>
           </Routes>
-
         </SelectContextProvider>
-
       </BrowserRouter>
-
     </div>
   )
 }

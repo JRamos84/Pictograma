@@ -1,0 +1,33 @@
+
+{ /* <Modal
+show={false} fullscreen={fullscreen} onHide={() => {
+  setShow(false)
+  setDiaryConfig(null)
+}}
+>
+<Modal.Header closeButton>
+  <Modal.Title>{diary.diary}</Modal.Title>
+</Modal.Header>
+<Modal.Body>
+  <div className='select-picto'>
+
+    <main className={styles.section}>
+      <section className={styles.contain}>
+        <div className={styles.layout}>
+          {diary.image.map(({ status, img }, index) => (
+            <div key={index}>
+              <CardSelectCardModal
+                order={index + 1}
+                image={img}
+                status={status}
+                diary={diary.diary}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
+
+  </div>
+</Modal.Body>
+</Modal> */ }
