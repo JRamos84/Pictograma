@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react'
 import SelectContext from 'context/selectContext'
 import './styles.css'
 import cx from 'classnames'
+import SpinnerLoader from 'components/Spinner'
 export default function PictoSelectConfig ({ diary }) {
   const { diariesConfig, setDiariesConfig } = useContext(SelectContext)
   const [imagePicto, setImagePicto] = useState(diariesConfig.find(b => b.diary === diary))
@@ -24,7 +25,7 @@ export default function PictoSelectConfig ({ diary }) {
   return (
     <>
       {loandingConfig
-        ? <h1>loanding...</h1>
+        ? <SpinnerLoader />
 
         : <div className='grid grid-cols-1 w-full '>
           {imagePicto.image.map(({ img, statusConfig, counter }, idx) => (

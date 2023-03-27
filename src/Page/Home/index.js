@@ -3,6 +3,8 @@ import SelectContext from 'context/selectContext'
 import React, { useContext, useEffect, useState } from 'react'
 import './styles.css'
 import DiaryPicto from 'components/DiaryPicto'
+import { Link } from 'react-router-dom'
+import { MdOutlineNoteAdd } from 'react-icons/md'
 
 export default function Home () {
   const [loanding, setLoanding] = useState(true)
@@ -17,9 +19,12 @@ export default function Home () {
   }, [])
 
   return (
-    <>{loanding
-      ? <h1>no hay agenda</h1>
-      : <DiaryPicto />}
+
+    <><Link as={Link} to='/search' className='btn__diary'><button><MdOutlineNoteAdd size={100} /></button></Link>
+
+      {loanding
+        ? <h1>no hay agenda</h1>
+        : <DiaryPicto />}
     </>
   )
 }

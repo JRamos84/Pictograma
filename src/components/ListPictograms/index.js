@@ -1,5 +1,6 @@
 
 import Picto from 'components/Pitco.js/Index'
+import SpinnerLoader from 'components/Spinner'
 import { usePicto } from 'Hooks/usePicto'
 
 export default function ListPictograms ({ keyword }) {
@@ -7,7 +8,7 @@ export default function ListPictograms ({ keyword }) {
   return (
     <>
       {loandig
-        ? <h1>loanding...</h1>
+        ? <SpinnerLoader />
         : <Picto />}
     </>
   )
