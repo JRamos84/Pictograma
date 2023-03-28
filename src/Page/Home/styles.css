@@ -34,6 +34,8 @@ input[type="checkbox"]{
   } */
 .btn__diary{
     position: fixed;
+    border: solid white;
+    border-radius: 50%;
     bottom: 50px;
     right: 0;
     height: 100px ;
@@ -41,6 +43,9 @@ input[type="checkbox"]{
     display: flex;
     justify-content: center;
     font-size: medium;
+    transition: 0.3s;
+    align-items: center;
+    margin-right: 0.5rem;
  
 }
 .btn__diary:hover{

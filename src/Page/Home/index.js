@@ -20,10 +20,13 @@ export default function Home () {
 
   return (
 
-    <><Link as={Link} to='/search' className='btn__diary'><button><MdOutlineNoteAdd size={100} /></button></Link>
+    <>
+      <div className='btn__diary'>
+        <Link as={Link} to='/search'><button><MdOutlineNoteAdd size={70} className='text-red-500' /></button></Link>
+      </div>
 
       {loanding
-        ? <h1>no hay agenda</h1>
+        ? <><h1 className='text-white'>Agenda</h1><p className='text-white'>Agrega tu agenda diaria</p></>
         : <DiaryPicto />}
     </>
   )
